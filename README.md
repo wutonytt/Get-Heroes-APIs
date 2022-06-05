@@ -134,8 +134,8 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 
 ## 3rd-Party Libraries
 ### Express
-Description in official document: *Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.*  
-My understanding and functionalities: Express allows us to build a web application and create APIs in an easier way and also own the advantages in robustness and speed.
+**Description in official document:** *Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.*  
+**My understanding and functionalities:** Express allows us to build a web application and create APIs in an easier way and also own the advantages in robustness and speed.
 ### Axios
-Description in official document: *Axios is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very extensible interface.*  
-My understanding and functionalities: Axios allows us to send HTTP requests and get responses for node.js in the program, and it can carry headers, data, and other parameters in the requests.
+**Description in official document:** *Axios is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very extensible interface.*  
+**My understanding and functionalities:** Axios allows us to send HTTP requests and get responses for node.js in the program, and it can carry headers, data, and other parameters in the requests.
