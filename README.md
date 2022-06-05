@@ -127,7 +127,15 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 ## Server Structure
 ### API Server
 **Node.js + Express**  
-2 main API interfaces `/heroes` and `/heroes/:heroId` are built, and each interface handles 2 type of API calling methods: `simple request` and `advanced request with authentication handler`.
+2 main routes `/heroes` and `/heroes/:heroId` are built, and each route handles 2 type of API calling methods: `simple request` and `advanced request with authentication handler`.
 ### Test
 **Jest + SuperTest**  
 2 separated files in `tests` directory: one is for `list heroes`, and the other one is fot `single hero`. Each of the 2 files handles both `simple request` and `advanced request with authentication handler`.
+
+## 3rd-Party Libraries
+### Express
+Description in official document: *Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.*
+My understanding and functionalities: Express allows us to build a web application and create APIs in an easier way and also own the advantages in robustness and speed.
+### Axios
+Description in official document: *Axios is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very extensible interface.*
+My understanding and functionalities: Axios allows us to send HTTP requests and get responses for node.js in the program, and it can carry headers, data, and other parameters in the requests.
