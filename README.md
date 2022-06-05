@@ -1,5 +1,5 @@
-# hahow project
-## Getting started
+# Hahow Project - API Server for Heroes
+## Getting Started
 ### Initialize the project
 ```
 npm install
@@ -147,3 +147,6 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 **My understanding and functionalities**  
 > Axios allows us to send HTTP requests and get responses for node.js in the program, and it can carry headers, data, and other parameters in the requests.
 
+## My Comment Guidelines
+Normally, I add comments in the code when the logics or the algorithms are complicated and hard to be interpret by the code directly.
+For example:
