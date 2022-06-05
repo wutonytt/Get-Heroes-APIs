@@ -123,3 +123,11 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
     ├── list_heroes.spec.js
     └── single_hero.spec.js
 ```
+
+## Server Structure
+### API Server
+**Node.js + Express**
+2 main API interfaces `/heroes` and `/heroes/:heroId` are built, and each interface handles 2 type of API calling methods: `simple request` and `advanced request with authentication handler`.
+### Test
+**Jest + SuperTest**
+2 separated files in `tests` directory: one is for `list heroes`, and the other one is fot `single hero`. Each of the 2 files handles both `simple request` and `advanced request with authentication handler`.
