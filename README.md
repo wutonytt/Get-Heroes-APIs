@@ -40,7 +40,7 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X 
 }
 ```
 ### Single Hero [GET] /heroes/:heroId
-*Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`*
+*Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`. Just retry until it works!*
 #### Request
 ``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://localhost:8000/heroes/1
@@ -89,7 +89,7 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 }
 ```
 ### Authenticated Single Hero [GET] /heroes/:heroId
-*Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`*
+*Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`. Just retry until it works!*
 #### Request
 ``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://localhost:8000/heroes/1
