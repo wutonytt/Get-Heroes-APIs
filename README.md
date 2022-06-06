@@ -40,6 +40,7 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X 
 }
 ```
 ### Single Hero [GET] /heroes/:heroId
+*Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`*
 #### Request
 ```
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://localhost:8000/heroes/1
@@ -88,6 +89,7 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 }
 ```
 ### Authenticated Single Hero [GET] /heroes/:heroId
+*Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`*
 #### Request
 ```
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://localhost:8000/heroes/1
@@ -150,3 +152,7 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 ## My Comment Guidelines
 Normally, I add comments in the code when the logics or the algorithms are complicated and hard to be interpret by the code directly.
 For example:
+
+## Challenges and Solutions
+### New Framework
+This is my first time building an API server with JavaScript, Node.js and Express.js, and I found out that I have to learn from the official documents or tutorials shared online. After learning this whole thing and with some basic knowledge of JavaScript using in frontend development, I managed to learn how to use JavaScript as a backend language and how to manipulate with the data with this framework. However, there may be some coding convention issues due to the unfamiliarity (as a newbie) of the framework.
