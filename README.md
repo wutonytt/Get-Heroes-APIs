@@ -1,16 +1,16 @@
 # Hahow Project - API Server for Heroes
 ## Getting Started
 ### Initialize the project
-```
+``` shell
 npm install
 ```
 ### Start the API server
-```
+``` shell
 npm start
 ```
 You will see `Server running at https://localhost:8000/` if the API server starts successfully.
 ### Run unit tests
-```
+``` shell
 npm test
 ```
 
@@ -18,11 +18,11 @@ npm test
 *Since the certificate is Self-Signed SSL Certificate created by OpenSSL, we should add `-k` to avoid `curl: (60) SSL certificate problem: self signed certificate`*
 ### List Heroes [GET] /heroes
 #### Request
-```
+``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://localhost:8000/heroes
 ```
 #### Response 200
-```
+``` js
 {
   "heroes": [
     {
@@ -42,11 +42,11 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X 
 ### Single Hero [GET] /heroes/:heroId
 *Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`*
 #### Request
-```
+``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://localhost:8000/heroes/1
 ```
 #### Response 200
-```
+``` js
 {
   "id": "1",
   "name": "Daredevil",
@@ -55,11 +55,11 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X 
 ```
 ### Authenticated List Heroes [GET] /heroes
 #### Request
-```
+``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://localhost:8000/heroes
 ```
 #### Response 200
-```
+``` js
 {
   "heroes": [
     {
@@ -91,11 +91,11 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 ### Authenticated Single Hero [GET] /heroes/:heroId
 *Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`*
 #### Request
-```
+``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://localhost:8000/heroes/1
 ```
 #### Response 200
-```
+``` js
 {
   "id": "1",
   "name": "Daredevil",
