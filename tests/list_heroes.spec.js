@@ -8,13 +8,13 @@ describe('List Heroes Endpoint', () => {
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json')
       .expect(200);
-
     expect(res.body.length).toEqual(4);
     res.body.map(
       hero => {
         expect(hero).toHaveProperty('id');
         expect(hero).toHaveProperty('name');
         expect(hero).toHaveProperty('image');
+        expect(hero).not.toHaveProperty('profile');
       }
     );
   });
@@ -26,7 +26,6 @@ describe('List Heroes Endpoint', () => {
       .set('Name', 'hahow')
       .set('Password', 'rocks')
       .expect(200);
-
     expect(res.body.length).toEqual(4);
     res.body.map(
       hero => {
@@ -36,5 +35,14 @@ describe('List Heroes Endpoint', () => {
         expect(hero).toHaveProperty('profile');
       }
     );
+  });
+  it('should return 401 authentication error', async () => {
+    await request(app)
+      .get('/heroes')
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
+      .set('Name', 'hahow')
+      .set('Password', 'rockssss')
+      .expect(401);
   });
 });
