@@ -129,7 +129,10 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 ## Server Structure
 ### API Server
 **Node.js + Express**  
-2 main routes `/heroes` and `/heroes/:heroId` are built, and each route handles 2 type of API calling methods: `simple request` and `advanced request with authentication handler`.
+2 main routes `/heroes` and `/heroes/:heroId` are built, and each route handles 2 type of API calling methods: `simple request` and `advanced request with authentication handler`. For each endpoints, we bypass the request to the provided APIs if the conditions are met.  
+For `Authenticated List/Single Hero(es)`, we call two types of APIs and concatenate the responses of them to form a new results and return them to the users who call the APIs.
+### Input Constraints
+If name and password are detected in the request headers, then call Authenticated APIs. If not, call simple APIs. In this project, no boundry situations are handled.
 ### Test
 **Jest + SuperTest**  
 2 separated files in `tests` directory: one is for `list heroes`, and the other one is fot `single hero`. Each of the 2 files handles both `simple request` and `advanced request with authentication handler`.
