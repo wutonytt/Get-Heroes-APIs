@@ -151,7 +151,6 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 
 ## My Comment Guidelines
 Normally, I add comments in the code when the logics or the algorithms are complicated and hard to be interpret by the code directly.
-For example:
 
 ## Challenges and Solutions
 ### New Framework
