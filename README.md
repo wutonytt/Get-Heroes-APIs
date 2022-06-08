@@ -114,13 +114,8 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -H "Name:
 
 ## Project Structure
 ```
-├── cert
-│   ├── cert.pem
-│   ├── cert.srl
-│   ├── key.pem
-│   ├── server-cert.pem
-│   ├── server-csr.pem
-│   └── server-key.pem
+.
+├── README.md
 ├── package-lock.json
 ├── package.json
 ├── server.js
