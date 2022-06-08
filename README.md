@@ -146,8 +146,6 @@ For `Authenticated List/Single Hero(es)`, we call two APIs (`/heroes` and `/hero
 
     First, call https://hahow-recruit.herokuapp.com/auth to process authentication. If the input name and password pass the authentication, call https://hahow-recruit.herokuapp.com/heroes/:heroId to get a single hero, and call https://hahow-recruit.herokuapp.com/heroes/:heroId/profile for that hero in the list to get its profile.
 
-### Input Constraints
-If name and password are detected in the request headers, then call Authenticated APIs. If not, call simple APIs. In this project, no boundry situations are handled.
 ### Test
 **Jest + SuperTest**  
 2 separated files in `tests` directory: one is for `list heroes`, and the other one is fot `single hero`. Each of the 2 files handles both `simple request` and `advanced request with authentication handler`.
