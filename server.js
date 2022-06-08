@@ -4,14 +4,14 @@ const axios = require('axios')
 const express = require('express');
 
 const app = express();
-const conn = {
+const connProduction = {
   hostname: '0.0.0.0',
   port: process.env.PORT
 };
-const ssl = {
-  key: fs.readFileSync('cert/key.pem'),
-  cert: fs.readFileSync('cert/cert.pem')
-};
+const connDev = {
+  hostname: 'localhost',
+  port: 8000
+}
 const defaultOptions = {
   headers: {
     'Accept': 'application/json',
@@ -19,9 +19,17 @@ const defaultOptions = {
   }
 };
 
-if (process.env.NODE_ENV !== 'test') {
-  http.createServer(app).listen(conn.port, () => {
-    console.log(`Server running at https://${conn.hostname}:${conn.port}/`)
+console.log(process.env.NODE_ENV);
+
+if (process.env.NODE_ENV === 'production') {
+  http.createServer(app).listen(connProduction.port, () => {
+    console.log(`Server running at https://${connProduction.hostname}:${connProduction.port}/`)
+  });
+}
+
+if (process.env.NODE_ENV === 'development') {
+  http.createServer(app).listen(connDev.port, () => {
+    console.log(`Server running at https://${connDev.hostname}:${connDev.port}/`)
   });
 }
 
