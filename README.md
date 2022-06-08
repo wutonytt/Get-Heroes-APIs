@@ -1,16 +1,16 @@
 # Hahow Project - API Server for Heroes
 ## Getting Started
 ### Initialize the project
-```
+``` shell
 npm install
 ```
 ### Start the API server
-```
+``` shell
 npm start
 ```
 You will see `Server running at https://localhost:8000/` if the API server starts successfully.
 ### Run unit tests
-```
+``` shell
 npm test
 ```
 
@@ -18,11 +18,11 @@ npm test
 *Since the certificate is Self-Signed SSL Certificate created by OpenSSL, we should add `-k` to avoid `curl: (60) SSL certificate problem: self signed certificate`*
 ### List Heroes [GET] /heroes
 #### Request
-```
+``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://localhost:8000/heroes
 ```
 #### Response 200
-```
+``` js
 {
   "heroes": [
     {
@@ -40,12 +40,13 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X 
 }
 ```
 ### Single Hero [GET] /heroes/:heroId
+*Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`. Just retry until it works!*
 #### Request
-```
+``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://localhost:8000/heroes/1
 ```
 #### Response 200
-```
+``` js
 {
   "id": "1",
   "name": "Daredevil",
@@ -54,11 +55,11 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X 
 ```
 ### Authenticated List Heroes [GET] /heroes
 #### Request
-```
+``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://localhost:8000/heroes
 ```
 #### Response 200
-```
+``` js
 {
   "heroes": [
     {
@@ -88,12 +89,13 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 }
 ```
 ### Authenticated Single Hero [GET] /heroes/:heroId
+*Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`. Just retry until it works!*
 #### Request
-```
+``` shell
 curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://localhost:8000/heroes/1
 ```
 #### Response 200
-```
+``` js
 {
   "id": "1",
   "name": "Daredevil",
@@ -127,7 +129,10 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 ## Server Structure
 ### API Server
 **Node.js + Express**  
-2 main routes `/heroes` and `/heroes/:heroId` are built, and each route handles 2 type of API calling methods: `simple request` and `advanced request with authentication handler`.
+2 main routes `/heroes` and `/heroes/:heroId` are built, and each route handles 2 type of API calling methods: `simple request` and `advanced request with authentication handler`. For each endpoints, we bypass the request to the provided APIs if the conditions are met.  
+For `Authenticated List/Single Hero(es)`, we call two types of APIs and concatenate the responses of them to form a new results and return them to the users who call the APIs.
+### Input Constraints
+If name and password are detected in the request headers, then call Authenticated APIs. If not, call simple APIs. In this project, no boundry situations are handled.
 ### Test
 **Jest + SuperTest**  
 2 separated files in `tests` directory: one is for `list heroes`, and the other one is fot `single hero`. Each of the 2 files handles both `simple request` and `advanced request with authentication handler`.
@@ -149,4 +154,7 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 
 ## My Comment Guidelines
 Normally, I add comments in the code when the logics or the algorithms are complicated and hard to be interpret by the code directly.
-For example:
+
+## Challenges and Solutions
+### New Framework
+This is my first time building an API server with JavaScript, Node.js and Express.js, and I found out that I have to learn from the official documents or tutorials shared online. After learning this whole thing and with some basic knowledge of JavaScript using in frontend development, I managed to learn how to use JavaScript as a backend language and how to manipulate with the data with this framework. However, there may be some coding convention issues due to the unfamiliarity (as a newbie) of the framework.
