@@ -8,10 +8,10 @@ describe('Single Hero Endpoint', () => {
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json')
       .expect(200);
-
     expect(res.body).toHaveProperty('id');
     expect(res.body).toHaveProperty('name');
     expect(res.body).toHaveProperty('image');
+    expect(res.body).not.toHaveProperty('profile');
   });
   it('should return hero advanced info', async () => {
     const res = await request(app)
@@ -21,10 +21,18 @@ describe('Single Hero Endpoint', () => {
       .set('Name', 'hahow')
       .set('Password', 'rocks')
       .expect(200);
-
     expect(res.body).toHaveProperty('id');
     expect(res.body).toHaveProperty('name');
     expect(res.body).toHaveProperty('image');
     expect(res.body).toHaveProperty('profile');
+  });
+  it('should return 401 authentication error', async () => {
+    await request(app)
+      .get('/heroes/1')
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
+      .set('Name', 'hahow')
+      .set('Password', 'rockssss')
+      .expect(401);
   });
 });

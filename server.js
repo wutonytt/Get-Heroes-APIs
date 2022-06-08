@@ -5,8 +5,8 @@ const express = require('express');
 
 const app = express();
 const conn = {
-  hostname: 'localhost',
-  port: 8000
+  hostname: '0.0.0.0',
+  port: process.env.PORT
 };
 const ssl = {
   key: fs.readFileSync('cert/key.pem'),
