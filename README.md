@@ -128,7 +128,24 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -H "Name:
 ### API Server
 **Node.js + Express**  
 2 main routes `/heroes` and `/heroes/:heroId` are built, and each route handles 2 type of API calling methods: `simple request` and `advanced request with authentication handler`. For each endpoints, we bypass the request to the provided APIs if the conditions are met.  
-For `Authenticated List/Single Hero(es)`, we call two types of APIs and concatenate the responses of them to form a new results and return them to the users who call the APIs.
+For `Authenticated List/Single Hero(es)`, we call two APIs (`/heroes` and `/heroes/:heroId/profile`) and concatenate the responses of them to form a new results and return them to the users who call the APIs. The details are as follows.
+
+* List Heroes [GET] /heroes
+
+    Call https://hahow-recruit.herokuapp.com/heroes to get heroes list.
+    
+* Single Hero [GET] /heroes/:heroId
+
+    Call https://hahow-recruit.herokuapp.com/heroes/:heroId to get a single hero.
+
+* Authenticated List Heroes [GET] /heroes
+
+    First, call https://hahow-recruit.herokuapp.com/auth to process authentication. If the input name and password pass the authentication, call https://hahow-recruit.herokuapp.com/heroes to get heroes list, and call https://hahow-recruit.herokuapp.com/heroes/:heroId/profile for each hero in the list to get its profile.
+
+* Authenticated Single Hero [GET] /heroes/:heroId
+
+    First, call https://hahow-recruit.herokuapp.com/auth to process authentication. If the input name and password pass the authentication, call https://hahow-recruit.herokuapp.com/heroes/:heroId to get a single hero, and call https://hahow-recruit.herokuapp.com/heroes/:heroId/profile for that hero in the list to get its profile.
+
 ### Input Constraints
 If name and password are detected in the request headers, then call Authenticated APIs. If not, call simple APIs. In this project, no boundry situations are handled.
 ### Test
