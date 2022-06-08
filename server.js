@@ -43,6 +43,12 @@ async function getHeroById(heroId) {
   return axios.get(
     `https://hahow-recruit.herokuapp.com/heroes/${heroId}`,
     defaultOptions
+  ).catch(
+    error => {
+      if (error.response.status == 404) {
+        return 404;
+      }
+    }
   )
 }
 async function auth(data, options) {
@@ -131,7 +137,14 @@ app.get('/heroes/:heroId', async (req, res) => {
       }
     );
   } else {
-    getHeroById(req.params.heroId).then(response => res.json(response.data));
+    getHeroById(req.params.heroId).then(
+      response => {
+        if (response == 404) {
+          res.status(404).send('Error 404: Not Found');
+        } else {
+          res.json(response.data);
+        }
+      });
   }
 })
 
