@@ -1,4 +1,4 @@
-const https = require("https");
+const http = require("http");
 const fs = require('fs');
 const axios = require('axios')
 const express = require('express');
@@ -20,7 +20,7 @@ const defaultOptions = {
 };
 
 if (process.env.NODE_ENV !== 'test') {
-  https.createServer(ssl, app).listen(conn.port, () => {
+  http.createServer(app).listen(conn.port, () => {
     console.log(`Server running at https://${conn.hostname}:${conn.port}/`)
   });
 }
