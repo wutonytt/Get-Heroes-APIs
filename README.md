@@ -1,25 +1,28 @@
 # Hahow Project - API Server for Heroes
 ## Getting Started
+### In Production Environment
+This project is deployed on heroku. You can jump to **Call APIs by curl** if you want to try in production environment.
+### In Development Environment
 ### Initialize the project
 ``` shell
 npm install
 ```
 ### Start the API server
 ``` shell
-npm start
+npm run dev
 ```
-You will see `Server running at https://localhost:8000/` if the API server starts successfully.
-### Run unit tests
+You will see `Server running at http://localhost:8000/` if the API server starts successfully.
+## Run unit tests
 ``` shell
 npm test
 ```
 
 ## Call APIs by curl
-*Since the certificate is Self-Signed SSL Certificate created by OpenSSL, we should add `-k` to avoid `curl: (60) SSL certificate problem: self signed certificate`*
+*In Development Environment, we do not use SSL or any other certification mechanism. You shoud use `http://localhost:8000/` instead of `https://tonywu-hahow.herokuapp.com/` in the commands shown below.*
 ### List Heroes [GET] /heroes
 #### Request
 ``` shell
-curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://localhost:8000/heroes
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://tonywu-hahow.herokuapp.com/heroes
 ```
 #### Response 200
 ``` js
@@ -43,7 +46,7 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X 
 *Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`. Just retry until it works!*
 #### Request
 ``` shell
-curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://localhost:8000/heroes/1
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H -X GET https://tonywu-hahow.herokuapp.com/heroes/1
 ```
 #### Response 200
 ``` js
@@ -56,7 +59,7 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H -X 
 ### Authenticated List Heroes [GET] /heroes
 #### Request
 ``` shell
-curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://localhost:8000/heroes
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://tonywu-hahow.herokuapp.com/heroes
 ```
 #### Response 200
 ``` js
@@ -92,7 +95,7 @@ curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Na
 *Sometimes the response of the api `https://hahow-recruit.herokuapp.com/heroes/:heroId` will be `{"code": 1000, "message": "Backend error"}`. Just retry until it works!*
 #### Request
 ``` shell
-curl -k -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://localhost:8000/heroes/1
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rockssss" -X GET https://tonywu-hahow.herokuapp.com/heroes/1
 ```
 #### Response 200
 ``` js
