@@ -25,9 +25,7 @@ if (process.env.NODE_ENV === 'production') {
   http.createServer(app).listen(connProduction.port, () => {
     console.log(`Server running at https://${connProduction.hostname}:${connProduction.port}/`)
   });
-}
-
-if (process.env.NODE_ENV === 'development') {
+} else if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
   http.createServer(app).listen(connDev.port, () => {
     console.log(`Server running at http://${connDev.hostname}:${connDev.port}/`)
   });
