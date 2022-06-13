@@ -1,4 +1,4 @@
-# Hahow Project - API Server for Heroes
+# API Server for Heroes
 ## Getting Started
 ### In Production Environment
 This project is deployed on heroku. You can jump to **Call APIs by curl** if you want to try in production environment.
